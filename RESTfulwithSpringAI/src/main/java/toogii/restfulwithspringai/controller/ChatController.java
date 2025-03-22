@@ -28,11 +28,6 @@ public class ChatController {
         return Map.of("generation", chatModel.call(message));
     }
 
-    @GetMapping("/ai/generate/recipe")
-    public Map generateRecipe(@RequestParam(value = "message", defaultValue = "Give me a dinner recipe") String message) {
-        return Map.of("generation", chatModel.call(message));
-    }
-
     @GetMapping("/ai/generateStream")
     public Flux<ChatResponse> generateStream(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {
         Prompt prompt = new Prompt(new UserMessage(message));
